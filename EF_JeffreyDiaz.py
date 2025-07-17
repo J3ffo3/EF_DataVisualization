@@ -161,20 +161,18 @@ fig_heatmap = px.imshow(
 )
 fig_heatmap.update_layout(
     title="Actividad mensual por cliente",
-    title_font=dict(color=COLOR_TEXT, size=20),
-    plot_bgcolor=COLOR_BG,
-    paper_bgcolor=COLOR_BG,
-    font=dict(color=COLOR_TEXT),
-    xaxis=dict(title='Mes', title_font=dict(color=COLOR_TEXT), tickfont=dict(color=COLOR_TEXT)),
-    yaxis=dict(title='Cliente', title_font=dict(color=COLOR_TEXT), tickfont=dict(color=COLOR_TEXT)),
+    plot_bgcolor="white",
+    paper_bgcolor="white",
+    font_color=COLOR_TEXT,
     coloraxis=dict(
-    colorbar=dict(
-        title='Ventas',
-        tickfont=dict(color=COLOR_TEXT),
-        titlefont=dict(color=COLOR_TEXT)
+        colorbar=dict(
+            title='Ventas',
+            tickfont=dict(color=COLOR_TEXT),
+            titlefont=dict(color=COLOR_TEXT)
+        )
     )
 )
-)
+
 # Gráfico de barras
 fig_top = px.bar(
     top_clientes,
