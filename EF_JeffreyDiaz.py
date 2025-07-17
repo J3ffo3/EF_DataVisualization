@@ -160,25 +160,21 @@ fig_heatmap = px.imshow(
     aspect="auto"
 )
 
+# Corregimos layout sin usar titlefont y tickfont directos
 fig_heatmap.update_layout(
-    title=dict(
-        text="Actividad mensual por cliente",
-        font=dict(color=COLOR_TEXT)
-    ),
-    xaxis=dict(title="Mes", titlefont=dict(color=COLOR_TEXT), tickfont=dict(color=COLOR_TEXT)),
-    yaxis=dict(title="Cliente", titlefont=dict(color=COLOR_TEXT), tickfont=dict(color=COLOR_TEXT)),
+    title_text="Actividad mensual por cliente",
+    title_font=dict(color=COLOR_TEXT),
+    font=dict(color=COLOR_TEXT),
     plot_bgcolor="white",
-    paper_bgcolor="white",
-    font=dict(color=COLOR_TEXT)
+    paper_bgcolor="white"
 )
 
-fig_heatmap.update_coloraxes(
-    colorbar=dict(
-        title="Ventas",
-        titlefont=dict(color=COLOR_TEXT),
-        tickfont=dict(color=COLOR_TEXT)
-    )
-)
+# Colorbar seguro
+fig_heatmap.update_coloraxes(colorbar=dict(
+    title="Ventas",
+    tickfont_color=COLOR_TEXT,
+    titlefont_color=COLOR_TEXT
+))
 
 # Gráfico de barras - top clientes
 fig_top = px.bar(
@@ -204,7 +200,6 @@ fig_top.update_layout(
 st.plotly_chart(fig_heatmap, use_container_width=True)
 st.plotly_chart(fig_top, use_container_width=True)
 st.dataframe(top_clientes, use_container_width=True)
-
 
 # ---------------------- HIPÓTESIS 3 ----------------------
 st.markdown("### 🧪 Hipótesis 3: Un Ship Mode siempre es preferido por algún segmento")
