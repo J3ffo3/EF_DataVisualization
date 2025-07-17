@@ -167,7 +167,13 @@ fig_heatmap.update_layout(
     font=dict(color=COLOR_TEXT),
     xaxis=dict(title='Mes', title_font=dict(color=COLOR_TEXT), tickfont=dict(color=COLOR_TEXT)),
     yaxis=dict(title='Cliente', title_font=dict(color=COLOR_TEXT), tickfont=dict(color=COLOR_TEXT)),
-    coloraxis_colorbar=dict(title='Ventas', tickfont=dict(color=COLOR_TEXT), titlefont=dict(color=COLOR_TEXT))
+    coloraxis=dict(
+    colorbar=dict(
+        title='Ventas',
+        tickfont=dict(color=COLOR_TEXT),
+        titlefont=dict(color=COLOR_TEXT)
+    )
+)
 )
 # Gráfico de barras
 fig_top = px.bar(
