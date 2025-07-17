@@ -163,14 +163,13 @@ fig_heatmap.update_layout(
     title="Actividad mensual por cliente",
     plot_bgcolor="white",
     paper_bgcolor="white",
-    font_color=COLOR_TEXT,
-    coloraxis=dict(
-        colorbar=dict(
-            title='Ventas',
-            tickfont=dict(color=COLOR_TEXT),
-            titlefont=dict(color=COLOR_TEXT)
-        )
-    )
+    font_color=COLOR_TEXT
+)
+
+fig_heatmap.update_coloraxes(
+    colorbar_title="Ventas",
+    colorbar_tickfont=dict(color=COLOR_TEXT),
+    colorbar_titlefont=dict(color=COLOR_TEXT)
 )
 
 # Gráfico de barras
