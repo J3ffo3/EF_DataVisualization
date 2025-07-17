@@ -156,18 +156,16 @@ heatmap_data = cliente_mes.pivot_table(index="Customer Name", columns="Mes", val
 fig_heatmap = px.imshow(
     heatmap_data,
     labels=dict(x="Mes", y="Cliente", color="Ventas"),
-    color_continuous_scale=["white", COLOR_TERTIARY, COLOR_TERTIARY],
+    color_continuous_scale=[(0, "white"), (1, COLOR_TERTIARY)],
     aspect="auto"
 )
+
 fig_heatmap.update_layout(
     title="Actividad mensual por cliente",
     plot_bgcolor="white",
     paper_bgcolor="white",
-    font_color=COLOR_TEXT
-)
-
-fig_heatmap.update_coloraxes(
-    colorbar=dict(
+    font=dict(color=COLOR_TEXT),
+    coloraxis_colorbar=dict(
         title="Ventas",
         tickfont=dict(color=COLOR_TEXT),
         titlefont=dict(color=COLOR_TEXT)
