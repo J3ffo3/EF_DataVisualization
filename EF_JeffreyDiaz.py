@@ -165,15 +165,20 @@ fig_heatmap.update_layout(
         text="Actividad mensual por cliente",
         font=dict(color=COLOR_TEXT)
     ),
+    xaxis=dict(title="Mes", titlefont=dict(color=COLOR_TEXT), tickfont=dict(color=COLOR_TEXT)),
+    yaxis=dict(title="Cliente", titlefont=dict(color=COLOR_TEXT), tickfont=dict(color=COLOR_TEXT)),
     plot_bgcolor="white",
     paper_bgcolor="white",
     font=dict(color=COLOR_TEXT)
 )
 
-if "coloraxis" in fig_heatmap.layout:
-    fig_heatmap.layout.coloraxis.colorbar.tickfont = dict(color=COLOR_TEXT)
-    fig_heatmap.layout.coloraxis.colorbar.title = dict(text="Ventas", font=dict(color=COLOR_TEXT))
-    
+fig_heatmap.update_coloraxes(
+    colorbar=dict(
+        title="Ventas",
+        titlefont=dict(color=COLOR_TEXT),
+        tickfont=dict(color=COLOR_TEXT)
+    )
+)
 
 # Gráfico de barras - top clientes
 fig_top = px.bar(
@@ -199,6 +204,7 @@ fig_top.update_layout(
 st.plotly_chart(fig_heatmap, use_container_width=True)
 st.plotly_chart(fig_top, use_container_width=True)
 st.dataframe(top_clientes, use_container_width=True)
+
 
 # ---------------------- HIPÓTESIS 3 ----------------------
 st.markdown("### 🧪 Hipótesis 3: Un Ship Mode siempre es preferido por algún segmento")
