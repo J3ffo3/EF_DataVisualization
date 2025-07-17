@@ -170,10 +170,10 @@ fig_heatmap.update_layout(
     font=dict(color=COLOR_TEXT)
 )
 
-# Corregir color del texto de la barra de color si existe coloraxis
 if "coloraxis" in fig_heatmap.layout:
     fig_heatmap.layout.coloraxis.colorbar.tickfont = dict(color=COLOR_TEXT)
-    fig_heatmap.layout.coloraxis.colorbar.titlefont = dict(color=COLOR_TEXT)
+    fig_heatmap.layout.coloraxis.colorbar.title = dict(text="Ventas", font=dict(color=COLOR_TEXT))
+    
 
 # Gráfico de barras - top clientes
 fig_top = px.bar(
