@@ -167,9 +167,11 @@ fig_heatmap.update_layout(
 )
 
 fig_heatmap.update_coloraxes(
-    colorbar_title="Ventas",
-    colorbar_tickfont=dict(color=COLOR_TEXT),
-    colorbar_titlefont=dict(color=COLOR_TEXT)
+    colorbar=dict(
+        title="Ventas",
+        tickfont=dict(color=COLOR_TEXT),
+        titlefont=dict(color=COLOR_TEXT)
+    )
 )
 
 # Gráfico de barras
