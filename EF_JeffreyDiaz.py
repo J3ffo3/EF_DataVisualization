@@ -160,7 +160,7 @@ fig_heatmap = px.imshow(
     aspect="auto"
 )
 
-# Corregimos layout sin usar titlefont y tickfont directos
+# Layout compatible
 fig_heatmap.update_layout(
     title_text="Actividad mensual por cliente",
     title_font=dict(color=COLOR_TEXT),
@@ -169,12 +169,13 @@ fig_heatmap.update_layout(
     paper_bgcolor="white"
 )
 
-# Colorbar seguro
-fig_heatmap.update_coloraxes(colorbar=dict(
-    title="Ventas",
-    tickfont_color=COLOR_TEXT,
-    titlefont_color=COLOR_TEXT
-))
+# ✅ Colorbar sin error
+fig_heatmap.update_coloraxes(
+    colorbar=dict(
+        title=dict(text="Ventas", font=dict(color=COLOR_TEXT)),
+        tickfont=dict(color=COLOR_TEXT)
+    )
+)
 
 # Gráfico de barras - top clientes
 fig_top = px.bar(
